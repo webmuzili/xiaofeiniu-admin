@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 //多组件所公用的储存仓库
 export default new Vuex.Store({
-  //公共数据的读取方法:this.$store.adminName
-  //公共数据的读取方法:this.$store.globalSettings
+  //公共数据的读取方法:this.$store.state.adminName
+  //公共数据的读取方法:this.$store.state.globalSettings
   state: {//当前数据的状态，类似于组件对象的data属性
     adminName:'', //当前登录的管理员名
     globalSettings:{//项目的全局设置信息
