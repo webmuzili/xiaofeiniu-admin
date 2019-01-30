@@ -14,7 +14,7 @@ Vue.use(ElementUI)         //注册ElementUI插件
 Vue.prototype.$axios=axios //把axios设置为所有的成员属性，以后可以使用this.$axios使用异步请求功能
 Vue.config.productionTip = false
 
-/*创建全集过滤器*/
+/*创建全局过滤器*/
 Vue.filter('data',(val)=>{
   //把bigint转为yyyy--mm--dd hh:mm:ss
   var data=new Date(val);
@@ -36,10 +36,18 @@ Vue.filter('data',(val)=>{
 })
 Vue.filter('curryency',(val)=>{
   //把int转换为￥xx.yy
-  return '￥'+val.toFixed(2)
+  return '￥'+val.toFixed(2) 
 })
+
+Vue.filter('tableStatus',(val)=>{
+  if(val==1) return '空闲';
+  else if(val==2) return '预定';
+  else if(val==3) return '占用';
+  else return '其他';
+})
+
 new Vue({
   router,
-  store,
-  render: h => h(App)
+  store,  //指定当前项目唯一的vuex储存仓库对象，其中保存着可供所有组件共享的数据
+  render: h => h(App) //(createElement)=>{return createElement(App)} 根据APP组件创建<App></App>组件
 }).$mount('#app')
