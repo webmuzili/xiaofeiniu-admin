@@ -1,13 +1,11 @@
 <template>
   <div class="main">
   <el-container>
-      <el-container>
-          <el-aside width='200px'>左侧边栏</el-aside>
-      </el-container>
+      <el-aside width='200px'>左侧边栏</el-aside>
       <el-container>
           <el-header height="60px">顶部</el-header>
           <el-main>
-            <router-view/>
+             <router-view></router-view>
           </el-main>
       </el-container>
   </el-container>
