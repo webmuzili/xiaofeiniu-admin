@@ -24,6 +24,15 @@ export default {
   },
   components: {
     'xfn-table': Table
-  }
+  },
+  mounted() {
+    //加载桌台列表
+     var url=this.$store.state.globalSettings.apiUrl+'/admin/table/';
+      this.$axios.get(url).then(({data})=>{
+              this.tableList=data
+            }).catch((err)=>{
+              console.log(err)
+        })
+  },
 }
 </script>
